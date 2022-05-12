@@ -130,31 +130,23 @@ print("Final labels",labels)
 x=[d[0] for d in datapoints]
 y=[d[1] for d in datapoints]
 
+x2 = []
+y2 = []
+x1 = []
+y1 = []
+for pt,label in zip(datapoints,labels):
+    if label == 1:
+        x1.append(pt[0])
+        y1.append(pt[1])
+    else:
+        x2.append(pt[0])
+        y2.append(pt[1])        
+
 xc=[c[0] for c in centroids]
 yc=[c[1] for c in centroids]
 
-plt.scatter(x,y)
+# plt.scatter(x,y)
+plt.scatter(x1,y1,color="green")
+plt.scatter(x2,y2,color="blue")
 plt.plot(xc,yc,"^",color="red")
 plt.show()
-
-#Output
-# Iteration: 1
-# Centroid1:  0.1 , 0.6
-# Centroid2:  0.3 , 0.2
-# New centroids: [(0.148, 0.712), (0.24666666666666667, 0.20000000000000004)]
-# New labels:  [1, 1, 1, 1, 2, 1, 2, 2]
-# Old labels:  [0, 0, 0, 0, 0, 0, 0, 0]
-# Iteration: 1
-# Centroid1:  0.148 , 0.712
-# Centroid2:  0.24666666666666667 , 0.20000000000000004
-# New centroids: [(0.1225, 0.765), (0.2475, 0.275)]
-# New labels:  [1, 1, 1, 1, 2, 2, 2, 2]
-# Old labels:  [1, 1, 1, 1, 2, 1, 2, 2]
-# Iteration: 1
-# Centroid1:  0.1225 , 0.765
-# Centroid2:  0.2475 , 0.275
-# New centroids: [(0.1225, 0.765), (0.2475, 0.275)]
-# New labels:  [1, 1, 1, 1, 2, 2, 2, 2]
-# Old labels:  [1, 1, 1, 1, 2, 2, 2, 2]
-# Final centroid:  [(0.1225, 0.765), (0.2475, 0.275)]
-# Final labels [1, 1, 1, 1, 2, 2, 2, 2]
